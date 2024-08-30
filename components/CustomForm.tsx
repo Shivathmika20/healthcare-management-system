@@ -10,11 +10,10 @@ import {
     FormLabel,
     FormMessage,
   } from "@/components/ui/form"
-  import { Input } from "@/components/ui/input"
-  import { Control } from "react-hook-form"
-  import { FieldTypes } from '../components/FormDetails'
-import Image from 'next/image'
-import { Phone, User } from 'lucide-react'
+import { Input } from "@/components/ui/input"
+import { Control } from "react-hook-form"
+import { FieldTypes } from '../components/FormDetails'
+
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
@@ -31,7 +30,7 @@ import PhoneInput from 'react-phone-number-input'
   }
 
   const RenderField=({field,props}:{field:any;props:Customprops}) => {
-    const {fieldType,iconAlt,iconSrc,placeholder} = props;
+    const {fieldType,placeholder} = props;
     switch(props.fieldType){
       case FieldTypes.INPUT:{
         return(
@@ -40,7 +39,6 @@ import PhoneInput from 'react-phone-number-input'
               <Image src={iconSrc} alt={iconAlt} width={24} height={24} className='' />
             ) } */}
             <FormControl>
-              
               <Input {...field} placeholder={placeholder} className='shad-input border-none rounded-xl' />
             </FormControl>
           </div>
@@ -82,7 +80,7 @@ export default function CustomForm(props: Customprops) {
                )}
 
               <RenderField field={field} props={props}/>
-              {/* <FormMessage className='shad-error'/> */}
+              
             </FormItem>
           )}
         />
